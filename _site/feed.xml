@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IT泥水匠</title>
+    <description>ArchLinux/Vimer/Marathon/Guitar/Father
+</description>
+    <link>https://jack-lijing.github.io/</link>
+    <atom:link href="https://jack-lijing.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 12 Oct 2016 11:34:52 +0800</pubDate>
+    <lastBuildDate>Wed, 12 Oct 2016 11:34:52 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>自动重置网易企业邮箱员工密码</title>
+        <description>&lt;p&gt;网易企业邮箱启用了新的密码规则，老师不适应这个密码复杂度，经常因为忘记而打电话要求重置，网易邮箱管理端并没有提供默认的重置按钮，我利用Greasemonkey插件编写脚本实现了此功能。&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// ==UserScript==&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// @name        mail.****.*.cn&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// @namespace   mail*****.******.*.cn&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// @include     https://mailhz.qiye.163.com/domain/*&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// @version     1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// @grant       none&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// ==/UserScript==&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pathname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;/domain/main&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt; 
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://mailhz.qiye.163.com/domain/ftl/account&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;html&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;visible&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;/domain/ftl/editAccount&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt;  &lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;/domain/ftl/createAccount&#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByTagName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;html&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;visible&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;password&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;123456&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementsByName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;pass_re&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;123456&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Tue, 11 Oct 2016 10:42:34 +0800</pubDate>
+        <link>https://jack-lijing.github.io/tools/2016/10/11/reset-qiye-163-mail-password.html</link>
+        <guid isPermaLink="true">https://jack-lijing.github.io/tools/2016/10/11/reset-qiye-163-mail-password.html</guid>
+        
+        
+        <category>tools</category>
+        
+      </item>
+    
+      <item>
+        <title>快速连接交换机</title>
+        <description>&lt;p&gt;linux天生的网络基因，加点代码就可以用键盘快捷远程控制路由器，我每次都敲的很爽。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;/*etc/hosts 增加路由器域名映射&lt;/li&gt;
+  &lt;li&gt;~/.bashrc 添加alias别名&lt;/li&gt;
+  &lt;li&gt;编写脚本，用expect实现密码的自动化&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/expect&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;ip &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;lindex &lt;span class=&quot;nv&quot;&gt;$argv&lt;/span&gt; 0]
+spawn ssh &lt;span class=&quot;nv&quot;&gt;$ip&lt;/span&gt;
+expect &lt;span class=&quot;s2&quot;&gt;&quot;*password:&quot;&lt;/span&gt;
+send &lt;span class=&quot;s2&quot;&gt;&quot;***************************&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\r&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+expect &lt;span class=&quot;s2&quot;&gt;&quot;*&amp;gt;&quot;&lt;/span&gt;
+interact&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Mon, 10 Oct 2016 00:00:00 +0800</pubDate>
+        <link>https://jack-lijing.github.io/network/2016/10/10/how-to-connect-switch-efficently.html</link>
+        <guid isPermaLink="true">https://jack-lijing.github.io/network/2016/10/10/how-to-connect-switch-efficently.html</guid>
+        
+        
+        <category>network</category>
+        
+      </item>
+    
+      <item>
+        <title>vmware vSphere Web Client Connect VM Console Failed reason</title>
+        <description>&lt;p&gt;原来一直通过远程登录Windows虚拟机运行vsphere-client管理VMWare平台，由于业务需要，需要采用web形式进行远程管理，其他一切都好，可是当我部署完虚拟机后，需要进入console界面配置IP时，发现虚拟机的console一直显示不出来，在内网访问web端可以，但到了外网就不灵了，通过tcpdump抓包，我发现两个问题&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;内外网的DNS服务器配置不一致，外网的域名没有指向正确的宿主机地址。这点我通过修改/etc/hosts文件绕过&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;外网在访问Console过程中需要进行ssl认证，可是此集群中的证书生成是将认证领域限定为 localhost.localdomain，导致外网中浏览器和服务器握手失败，而内网中可成功的情况，需要重新生成证书来解决。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 19 May 2016 00:00:00 +0800</pubDate>
+        <link>https://jack-lijing.github.io/computer/2016/05/19/vmware-console-launtch-problem.html</link>
+        <guid isPermaLink="true">https://jack-lijing.github.io/computer/2016/05/19/vmware-console-launtch-problem.html</guid>
+        
+        
+        <category>computer</category>
+        
+      </item>
+    
+  </channel>
+</rss>

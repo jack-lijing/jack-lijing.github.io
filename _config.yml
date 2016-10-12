@@ -1,0 +1,20 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: IT泥水匠
+email: lijing48301243@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  ArchLinux/Vimer/Marathon/Guitar/Father
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://jack-lijing.github.io" # the base hostname & protocol for your site
+twitter_username: jack_lijing
+github_username: jack-lijing
+weibo_username: lijing48301243
+
+# Build settings
+markdown: kramdown

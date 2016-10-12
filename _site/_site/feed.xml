@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IT泥水匠</title>
+    <description>ArchLinux/Vimer/Marathon/Guitar/Father
+</description>
+    <link>https://jack-lijing.github.io/</link>
+    <atom:link href="https://jack-lijing.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 19 May 2016 16:26:07 +0800</pubDate>
+    <lastBuildDate>Thu, 19 May 2016 16:26:07 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>业委会竞选</title>
+        <description>&lt;p&gt;今天听到帮主悄悄的告诉我:你业主委员会候选人的身份被剔除了。我心头不仅一紧，不关心杂事的的她现在消息怎么这么灵通。她说是社区主任在QQ中对她说的。听到这里我不能感叹于我高估了她们的工作能力。&lt;/p&gt;
+
+&lt;p&gt;业主委员会说白了就是代表小区全体业主的利益，监督和协调物业的工作，没工资，完全是义务劳动，这是多大的一个“官”啊，令我想不到的是街道对他竟然是如此害怕。&lt;/p&gt;
+
+&lt;p&gt;记得刚开始时排屋开始将车库后的绿地硬化成水泥，物业不管，业委会也当作没看到，后来排屋将公用面积圈进去了，物业不管，业务会也不管，社会更懒得管，排屋改造完了，就轮到了多层，大家开始跟风的造车位，反正你们都不管，虽然没影响到我，但我总觉得不妥，强势的得了利益，好说话的被占了便宜，人心的失衡总让人如鲠在喉。&lt;/p&gt;
+
+&lt;p&gt;上一月，鉴于上届业主委员会的无为，小区业主投票要求重新选举业委会成员，物业在门口挂出了“积极选举第三届业委会，感谢社区和街道光临指导”的条幅，我以为这是小区民主选举的开始，头脑一热就报名自荐了，截至日期前，我看到自荐/推荐候选人还有4个，还积极号召大家报名，参与小区的自我管理。想不到五一就发生了36幢楼改建公共草坪为停车位的事件。打了市长热线后，社区街道传达了城管说的“绿化砖不能强拆的说法”，我想想等新一届业委会成立后处理好这件事情也行。&lt;/p&gt;
+
+&lt;p&gt;但一转眼，社区推出了四个组织推荐的业委会候选人，又以只能6选5的说法，排除了其他来自自荐的人员进入大名单，其实对于来自社区推荐的人，我一想也觉得不错啊，这至少代表了政府，代表了公平和公正，还能替我们业主说话办事。但是回头细细一思考，隐隐约约总觉得不妥，曾经第一届第二届的业委会委员呢？他们当时也是受社区的委托啊，可是只见到绿化被摧毁，大门口的路面整天维修，也从来没见过他们露面啊！可能是业务会主任觉得每年5000的工资太低，没动力干活吧，各委员也是忙于自己的事物，无法抽身，这个局面对社区/物业/业务会真是各取所需，也只能委屈小区的业主了。&lt;/p&gt;
+
+&lt;p&gt;想到这里我不禁倒吸一口凉气，社区手段之高明，已经深得厚黑学之精髓啊。记得在离开华为时，部门老大劝告我这样的性格：刚毅但缺乏柔性，敢言又不懂策略，以后不要参与政治，我的确也不想，但是当看到那些各种形形色色挑战我价值观的事情时，我总又忍不住那么好奇。我想多看看老子的书学学无为之道，帮主又说我总梦想前往终南山&lt;/p&gt;
+
+&lt;p&gt;下周社区即将隆重推出新一届业委会候选人成员，这真是香格里小区业委会的又一个轮回，我想问问社区主任“你们这样的做法真的好吗？”，同时我还想问问候选人：“对于小区的管理挑战，你准备当傀儡还是当勇士？希望需要你们的时候别隐身。” 我只想回到山中敲键盘。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 19 May 2016 00:00:00 +0800</pubDate>
+        <link>https://jack-lijing.github.io/life/2016/05/19/yeweihu.html</link>
+        <guid isPermaLink="true">https://jack-lijing.github.io/life/2016/05/19/yeweihu.html</guid>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>vmware vSphere Web Client Connect VM Console Failed reason</title>
+        <description>&lt;p&gt;原来一直通过远程登录Windows虚拟机运行vsphere-client管理VMWare平台，由于业务需要，需要采用web形式进行远程管理，其他一切都好，可是当我部署完虚拟机后，需要进入console界面配置IP时，发现虚拟机的console一直显示不出来，在内网访问web端可以，但到了外网就不灵了，通过tcpdump抓包，我发现两个问题&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;内外网的DNS服务器配置不一致，外网的域名没有指向正确的宿主机地址。这点我通过修改/etc/hosts文件绕过&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;外网在访问Console过程中需要进行ssl认证，可是此集群中的证书生成是将认证领域限定为 localhost.localdomain，导致外网中浏览器和服务器握手失败，而内网中可成功的情况，需要重新生成证书来解决。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 19 May 2016 00:00:00 +0800</pubDate>
+        <link>https://jack-lijing.github.io/computer/2016/05/19/vmware-console-launtch-problem.html</link>
+        <guid isPermaLink="true">https://jack-lijing.github.io/computer/2016/05/19/vmware-console-launtch-problem.html</guid>
+        
+        
+        <category>computer</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 18 May 2016 19:42:34 +0800</pubDate>
+        <link>https://jack-lijing.github.io/jekyll/update/2016/05/18/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">https://jack-lijing.github.io/jekyll/update/2016/05/18/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>
